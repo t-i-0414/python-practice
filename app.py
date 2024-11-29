@@ -1,2 +1,9 @@
-name = input("What is your name? ")
-print("Hello " + name)
+# import pandas as pd
+
+
+def main():
+    print("Hello from python-practice!")
+
+
+if __name__ == "__main__":
+    main()
