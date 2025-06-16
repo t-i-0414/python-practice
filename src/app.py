@@ -1,7 +1,7 @@
 # import pandas as pd
 
 
-def main():
+def main() -> None:
     print("Hello from python-practice!")
 
 
