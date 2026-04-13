@@ -1,4 +1,4 @@
-.PHONY: setup test lint format typecheck clean check
+.PHONY: setup test test-cov lint fix format format-check typecheck check clean
 
 setup:
 	uv sync --group dev
@@ -10,7 +10,11 @@ test-cov:
 	uv run pytest --cov=src
 
 lint:
+	uv run ruff check
+
+fix:
 	uv run ruff check --fix
+	uv run ruff format
 
 format:
 	uv run ruff format
@@ -19,9 +23,9 @@ format-check:
 	uv run ruff format --check
 
 typecheck:
-	uv run mypy .
+	uv run mypy src/
 
-check: lint format typecheck test
+check: lint format-check typecheck test
 
 clean:
 	find . -type f -name "*.pyc" -delete
