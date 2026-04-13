@@ -3,8 +3,8 @@ name = "python-practice"
 version = "0.1.0"
 description = "Python project boilerplate with modern tooling (uv, ruff, mypy, pytest)"
 readme = "README.md"
-requires-python = "==3.13.0"
-dependencies = ["pandas>=2.2.3"]
+requires-python = ">=3.13"
+dependencies = []
 
 [build-system]
 requires = ["hatchling"]
@@ -16,10 +16,10 @@ packages = ["src"]
 [dependency-groups]
 dev = [
   "mypy>=1.16.0",
-  "pre-commit>=4.2.0",
   "pytest>=8.4.0",
   "pytest-cov>=6.0.0",
   "pytest-mock>=3.14.1",
+  "pytest-xdist>=3.5.0",
   "ruff>=0.11.13",
 ]
 
@@ -34,7 +34,7 @@ target-version = "py313"
 exclude = [".git", ".ruff_cache", ".venv", ".vscode"]
 
 [tool.ruff.lint]
-select = ["E", "F", "I"]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["src"]
@@ -44,3 +44,4 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+pythonpath = ["src"]
